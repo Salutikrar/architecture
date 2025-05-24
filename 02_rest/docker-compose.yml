@@ -1,0 +1,30 @@
+version: '3.3'
+
+services:
+
+
+  user:
+    build:
+      context: .
+      dockerfile: ./user_service/Dockerfile
+    #networks:
+      #- my_network
+    ports:
+      - "8000:8000"
+
+  server:
+    build:
+      context: .
+      dockerfile: ./conference_service/Dockerfile
+    #networks:
+      #- my_network
+    ports:
+      - "8001:8000"
+
+  structurizr_my:
+    image: structurizr/lite
+    container_name: strl1
+    ports:
+      - 8080:8080
+    volumes:
+        - ./:/usr/local/structurizr
