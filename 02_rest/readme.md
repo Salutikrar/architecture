@@ -54,8 +54,8 @@ DELETE /presentations/{title} # Удаление доклада (требует 
 
 ### Обновленная архитектурная модель Structuriser DSL
 
-![context](images\structurizr-1-context.png)
+![context](images/structurizr-1-context.png)
 
-![container](images\structurizr-1-container.png)
+![container](images/structurizr-1-container.png)
 
-![dynamic](images\structurizr-1-dynamic.png)
+![dynamic](images/structurizr-1-dynamic.png)
