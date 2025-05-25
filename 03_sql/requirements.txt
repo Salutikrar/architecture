@@ -1,0 +1,19 @@
+fastapi
+pydantic
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+python-jose[cryptography]
+passlib[bcrypt]
+pyjwt
+python-multipart
+
+
+
+# pandas
+# redis
+# pymongo
+# prometheus_client
+# requests
+# pika
+# confluent-kafka

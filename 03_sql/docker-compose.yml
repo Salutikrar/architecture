@@ -1,0 +1,57 @@
+version: '3.3'
+
+services:
+
+
+  user:
+    build:
+      context: .
+      dockerfile: ./user_service//Dockerfile
+    #networks:
+      #- my_network
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://stud:stud@db/archdb
+
+
+  server:
+    build:
+      context: .
+      dockerfile: ./conference_service/Dockerfile
+    #networks:
+      #- my_network
+    # depends_on:
+    #   - db
+    ports:
+      - "8001:8000"
+    # environment:
+    #   - DATABASE_URL=postgresql://stud:stud@db/archdb
+
+
+  db:
+    image: postgres:14
+    container_name: db
+    # networks:
+    #   - my_network
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=stud
+      - POSTGRES_PASSWORD=stud
+      - POSTGRES_DB=archdb
+    volumes:
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+
+  structurizr_my:
+    image: structurizr/lite
+    container_name: strl1
+    ports:
+      - 8080:8080
+    volumes:
+        - ./:/usr/local/structurizr
+
+volumes:
+  postgres-data:
